@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: 100%;">
+  <!-- 배경 -->
+  <rect width="800" height="600" fill="#f8f7f4"></rect>
+
+  <!-- 제목 -->
+  <text x="400" y="44" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="24" font-weight="700" fill="#0a0a0a">모델 통합 및 종합 평가 프로세스</text>
+
+  <!-- 정의: 기어 모양 -->
+  <defs>
+    <path id="gear-small" d="M20,5 L25,5 L27,0 L33,0 L35,5 L40,5 L43,10 L48,10 L48,16 L53,19 L53,25 L58,27 L58,33 L53,35 L53,41 L48,44 L48,50 L43,50 L40,55 L35,55 L33,60 L27,60 L25,55 L20,55 L17,50 L12,50 L12,44 L7,41 L7,35 L2,33 L2,27 L7,25 L7,19 L12,16 L12,10 L17,10 Z" transform="translate(-30,-30)" fill="inherit" stroke="#0a0a0a" stroke-width="2"></path>
+    
+    <path id="gear-large" d="M30,8 L40,8 L43,0 L57,0 L60,8 L70,8 L76,15 L86,15 L86,25 L94,30 L94,40 L102,43 L102,57 L94,60 L94,70 L86,75 L86,85 L76,85 L70,92 L60,92 L57,100 L43,100 L40,92 L30,92 L24,85 L14,85 L14,75 L6,70 L6,60 L0,57 L0,43 L6,40 L6,30 L14,25 L14,15 L24,15 Z" transform="translate(-51,-50)" fill="#059669" stroke="#0a0a0a" stroke-width="2"></path>
+  </defs>
+
+  <!-- 중앙 통합 기어 -->
+  <g transform="translate(400, 310)">
+    <use href="#gear-large" opacity="0.2">
+      <animate attributeName="opacity" from="0.2" to="1" dur="0.5s" begin="4s" fill="freeze"></animate>
+      <animateTransform attributeName="transform" type="rotate" from="0" to="-360" dur="8s" repeatCount="indefinite" begin="4.5s" additive="sum"></animateTransform>
+    </use>
+    <circle r="35" fill="#f8f7f4" stroke="#0a0a0a" stroke-width="2"></circle>
+    <text y="0" text-anchor="middle" dominant-baseline="middle" font-family="'Pretendard', sans-serif" font-size="16" font-weight="700" fill="#0a0a0a">통합 등급</text>
+  </g>
+
+  <!-- 모델 1: 재무 모델 -->
+  <g>
+    <animateTransform attributeName="transform" type="translate" values="180,180; 180,180; 312,222" keyTimes="0; 0.3; 0.4" dur="10s" repeatCount="indefinite"></animateTransform>
+    <g>
+      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="4s" repeatCount="indefinite"></animateTransform>
+      <use href="#gear-small" fill="#e5e5e5"></use>
+    </g>
+    <text y="-45" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="14" font-weight="500" fill="#737373">재무 모델</text>
+  </g>
+
+  <!-- 모델 2: 비재무 모델 -->
+  <g>
+    <animateTransform attributeName="transform" type="translate" values="620,180; 620,180; 488,222" keyTimes="0; 0.3; 0.4" dur="10s" repeatCount="indefinite"></animateTransform>
+    <g>
+      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="4s" repeatCount="indefinite"></animateTransform>
+      <use href="#gear-small" fill="#e5e5e5"></use>
+    </g>
+    <text y="-45" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="14" font-weight="500" fill="#737373">비재무 모델</text>
+  </g>
+
+  <!-- 모델 3: 대표 모델 -->
+  <g>
+    <animateTransform attributeName="transform" type="translate" values="400,520; 400,520; 400,435" keyTimes="0; 0.3; 0.4" dur="10s" repeatCount="indefinite"></animateTransform>
+    <g>
+      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="4s" repeatCount="indefinite"></animateTransform>
+      <use href="#gear-small" fill="#e5e5e5"></use>
+    </g>
+    <text y="50" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="14" font-weight="500" fill="#737373">대표 모델</text>
+  </g>
+
+  <!-- 설명 라벨 (하단) -->
+  <g transform="translate(400, 560)">
+    <text text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="15" fill="#737373">
+      <tspan x="0" dy="0">각 모델의 독립적 평가 후,</tspan>
+      <tspan x="0" dy="22">상호 결합을 통해 최종 통합 등급을 산출합니다.</tspan>
+    </text>
+  </g>
+</svg>

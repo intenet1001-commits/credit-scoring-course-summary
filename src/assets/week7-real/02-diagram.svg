@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: 100%;">
+  <!-- 배경 -->
+  <rect width="800" height="600" fill="#f8f7f4"></rect>
+
+  <!-- 제목 -->
+  <text x="400" y="44" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="24" font-weight="700" fill="#0a0a0a">AI 블랙박스 해소: 설명 가능한 AI (XAI)</text>
+
+  <!-- 사용자 (왼쪽) -->
+  <g transform="translate(120, 330)">
+    <!-- 몸체 -->
+    <path d="M-30,80 Q0,70 30,80 L20,20 L-20,20 Z" fill="#e5e5e5" stroke="#737373" stroke-width="2"></path>
+    <!-- 머리 -->
+    <circle cx="0" cy="0" r="25" fill="#f5f5f4" stroke="#737373" stroke-width="2"></circle>
+    <!-- 혼란스러운 표정 (눈) -->
+    <path d="M-10,-5 L-2,-2 M10,-5 L2,-2" stroke="#737373" stroke-width="2" stroke-linecap="round"></path>
+    <path d="M-8,10 Q0,5 8,10" fill="none" stroke="#737373" stroke-width="2"></path>
+    <!-- 혼란 기호 -->
+    <text x="0" y="-45" font-size="30" font-weight="700" fill="#737373">
+      <tspan>?</tspan>
+      <animate attributeName="opacity" values="1;0.2;1" dur="2s" repeatCount="indefinite"></animate>
+    </text>
+    <text x="0" y="110" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="16" font-weight="500" fill="#737373">사용자</text>
+  </g>
+
+  <!-- 블랙박스 (중앙) -->
+  <g transform="translate(320, 250)">
+    <rect id="blackbox" width="160" height="160" rx="12" fill="#0a0a0a"></rect>
+    <text id="box-q" x="80" y="90" text-anchor="middle" dominant-baseline="middle" font-family="'Pretendard', sans-serif" font-size="60" font-weight="700" fill="#ffffff">?</text>
+    <text x="80" y="190" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="16" font-weight="500" fill="#0a0a0a">AI 모델 (블랙박스)</text>
+    
+    <!-- 내부 로직 시각화 (나중에 나타남) -->
+    <g opacity="0">
+      <circle cx="40" cy="40" r="5" fill="#7c3aed"></circle>
+      <circle cx="120" cy="120" r="5" fill="#7c3aed"></circle>
+      <path d="M40,40 L120,120" stroke="#7c3aed" stroke-width="1" stroke-dasharray="4"></path>
+      <animate attributeName="opacity" from="0" to="0.4" begin="2s" dur="1s" fill="freeze"></animate>
+    </g>
+  </g>
+
+  <!-- 전구 (통찰) -->
+  <g transform="translate(400, 180)" opacity="0">
+    <path d="M0,0 Q-20,-20 -20,-40 A20,20 0 1,1 20,-40 Q20,-20 0,0 Z" fill="#facc15" stroke="#ca8a04" stroke-width="2"></path>
+    <rect x="-8" y="0" width="16" height="8" rx="2" fill="#737373"></rect>
+    <!-- 빛 효과 -->
+    <g stroke="#facc15" stroke-width="3" stroke-linecap="round">
+      <line x1="0" y1="-70" x2="0" y2="-85"></line>
+      <line x1="30" y1="-55" x2="42" y2="-65"></line>
+      <line x1="-30" y1="-55" x2="-42" y2="-65"></line>
+    </g>
+    <animate attributeName="opacity" from="0" to="1" begin="1.5s" dur="0.5s" fill="freeze"></animate>
+    <animateTransform attributeName="transform" type="translate" values="400,190; 400,180" begin="1.5s" dur="0.5s" fill="freeze"></animateTransform>
+  </g>
+
+  <!-- 설명 화살표 -->
+  <g fill="none" stroke="#7c3aed" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path id="arrow1" d="M480,300 L560,260" stroke-dasharray="100" stroke-dashoffset="100">
+      <animate attributeName="stroke-dashoffset" from="100" to="0" begin="2.5s" dur="0.8s" fill="freeze"></animate>
+    </path>
+    <path id="arrow2" d="M480,330 L560,330" stroke-dasharray="100" stroke-dashoffset="100">
+      <animate attributeName="stroke-dashoffset" from="100" to="0" begin="2.7s" dur="0.8s" fill="freeze"></animate>
+    </path>
+    <path id="arrow3" d="M480,360 L560,400" stroke-dasharray="100" stroke-dashoffset="100">
+      <animate attributeName="stroke-dashoffset" from="100" to="0" begin="2.9s" dur="0.8s" fill="freeze"></animate>
+    </path>
+    <!-- 화살표 촉 -->
+    <polygon points="560,260 550,255 552,265" fill="#7c3aed" opacity="0">
+      <animate attributeName="opacity" to="1" begin="3.3s" dur="0.1s" fill="freeze"></animate>
+    </polygon>
+    <polygon points="560,330 550,325 550,335" fill="#7c3aed" opacity="0">
+      <animate attributeName="opacity" to="1" begin="3.5s" dur="0.1s" fill="freeze"></animate>
+    </polygon>
+    <polygon points="560,400 552,395 550,405" fill="#7c3aed" opacity="0">
+      <animate attributeName="opacity" to="1" begin="3.7s" dur="0.1s" fill="freeze"></animate>
+    </polygon>
+  </g>
+
+  <!-- 설명 말풍선 (오른쪽) -->
+  <g transform="translate(580, 250)" opacity="0">
+    <rect width="180" height="160" rx="12" fill="#ffffff" stroke="#7c3aed" stroke-width="2"></rect>
+    <text x="90" y="45" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="18" font-weight="700" fill="#7c3aed">판단 근거</text>
+    <line x1="30" y1="65" x2="150" y2="65" stroke="#e5e5e5" stroke-width="1"></line>
+    <text x="90" y="95" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="14" fill="#737373">"A 요소 때문에</text>
+    <text x="90" y="120" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="14" fill="#737373">B라고 판단함"</text>
+    <text x="90" y="190" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="16" font-weight="500" fill="#7c3aed">설명(Explanation)</text>
+    <animate attributeName="opacity" from="0" to="1" begin="3.5s" dur="1s" fill="freeze"></animate>
+  </g>
+
+  <!-- 사용자 표정 변화 -->
+  <g transform="translate(120, 330)">
+    <path d="M-10,-5 Q-5,-10 0,-5 M10,-5 Q15,-10 20,-5" fill="none" stroke="#2563eb" stroke-width="2" opacity="0">
+      <animate attributeName="opacity" from="0" to="1" begin="4.5s" dur="0.5s" fill="freeze"></animate>
+    </path>
+    <path d="M-8,12 Q0,20 8,12" fill="none" stroke="#2563eb" stroke-width="2" opacity="0">
+      <animate attributeName="opacity" from="0" to="1" begin="4.5s" dur="0.5s" fill="freeze"></animate>
+    </path>
+  </g>
+</svg>

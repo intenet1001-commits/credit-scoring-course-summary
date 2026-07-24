@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: 100%;">
+  <!-- 배경 -->
+  <rect width="800" height="600" fill="#f8f7f4"></rect>
+
+  <!-- 제목 -->
+  <text x="400" y="44" font-family="'Pretendard', sans-serif" font-size="24" font-weight="700" fill="#0a0a0a" text-anchor="middle">위치 정보 기반 신용 평가 모델의 정확도 향상</text>
+
+  <!-- 저울 지지대 -->
+  <path d="M380 520 L420 520 L400 350 Z" fill="#e5e5e5" stroke="#737373" stroke-width="2"></path>
+  <circle cx="400" cy="350" r="6" fill="#737373"></circle>
+
+  <!-- 저울 전체 시스템 (회전 애니메이션) -->
+  <g id="scale_system">
+    <animateTransform attributeName="transform" type="rotate" from="0 400 350" to="12 400 350" begin="2.5s" dur="1.5s" fill="freeze" calcMode="spline" keySplines="0.42 0 0.58 1"></animateTransform>
+    
+    <!-- 저울 대 -->
+    <line x1="200" y1="350" x2="600" y2="350" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"></line>
+
+    <!-- 왼쪽 접시 (전통적 데이터) -->
+    <g id="left_pan">
+      <animateTransform attributeName="transform" type="rotate" from="0 200 350" to="-12 200 350" begin="2.5s" dur="1.5s" fill="freeze" calcMode="spline" keySplines="0.42 0 0.58 1"></animateTransform>
+      <line x1="200" y1="350" x2="200" y2="420" stroke="#737373" stroke-width="2"></line>
+      <path d="M140 420 Q200 450 260 420" fill="none" stroke="#0a0a0a" stroke-width="3"></path>
+      
+      <!-- 전통적 데이터 무게추 -->
+      <rect x="160" y="385" width="36" height="30" rx="4" fill="#e5e5e5" stroke="#737373"></rect>
+      <text x="178" y="402" font-family="'Pretendard', sans-serif" font-size="12" fill="#737373" text-anchor="middle">인구</text>
+      <rect x="204" y="385" width="36" height="30" rx="4" fill="#e5e5e5" stroke="#737373"></rect>
+      <text x="222" y="402" font-family="'Pretendard', sans-serif" font-size="12" fill="#737373" text-anchor="middle">이력</text>
+      <text x="200" y="465" font-family="'Pretendard', sans-serif" font-size="15" font-weight="500" fill="#737373" text-anchor="middle">전통적 신용 모델</text>
+    </g>
+
+    <!-- 오른쪽 접시 (정확도) -->
+    <g id="right_pan">
+      <animateTransform attributeName="transform" type="rotate" from="0 600 350" to="-12 600 350" begin="2.5s" dur="1.5s" fill="freeze" calcMode="spline" keySplines="0.42 0 0.58 1"></animateTransform>
+      <line x1="600" y1="350" x2="600" y2="420" stroke="#737373" stroke-width="2"></line>
+      <path d="M540 420 Q600 450 660 420" fill="none" stroke="#0a0a0a" stroke-width="3"></path>
+      
+      <!-- 정확도 텍스트 -->
+      <text x="600" y="465" font-family="'Pretendard', sans-serif" font-size="16" font-weight="700" fill="#059669" text-anchor="middle">예측 정확도</text>
+      
+      <!-- 위치 정보 아이콘들 (등장 애니메이션) -->
+      <g id="geo_icons" opacity="0">
+        <animate attributeName="opacity" from="0" to="1" begin="1s" dur="0.5s" fill="freeze"></animate>
+        
+        <!-- 아이콘 1 -->
+        <g transform="translate(580, 380)">
+          <path d="M0 0 Q0 -15 10 -15 Q20 -15 20 0 Q20 15 10 25 Q0 15 0 0" fill="#059669" opacity="0.8">
+            <animate attributeName="fill" values="#059669;#34d399;#059669" dur="2s" repeatCount="indefinite"></animate>
+          </path>
+          <circle cx="10" cy="0" r="4" fill="white"></circle>
+        </g>
+        
+        <!-- 아이콘 2 -->
+        <g transform="translate(610, 390)">
+          <path d="M0 0 Q0 -12 8 -12 Q16 -12 16 0 Q16 12 8 20 Q0 12 0 0" fill="#059669" opacity="0.9">
+            <animate attributeName="fill" values="#059669;#34d399;#059669" dur="2s" begin="0.5s" repeatCount="indefinite"></animate>
+          </path>
+          <circle cx="8" cy="0" r="3" fill="white"></circle>
+        </g>
+
+        <!-- 아이콘 3 -->
+        <g transform="translate(595, 400)">
+          <path d="M0 0 Q0 -10 7 -10 Q14 -10 14 0 Q14 10 7 17 Q0 10 0 0" fill="#059669">
+            <animate attributeName="fill" values="#059669;#34d399;#059669" dur="2s" begin="1s" repeatCount="indefinite"></animate>
+          </path>
+          <circle cx="7" cy="0" r="2.5" fill="white"></circle>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- 위치 정보 데이터 라벨 (상단에서 내려옴) -->
+  <g opacity="0">
+    <animate attributeName="opacity" from="0" to="1" begin="0.5s" dur="0.5s" fill="freeze"></animate>
+    <rect x="530" y="120" width="140" height="40" rx="20" fill="#059669"></rect>
+    <text x="600" y="142" font-family="'Pretendard', sans-serif" font-size="14" font-weight="500" fill="white" text-anchor="middle">위치 정보 데이터</text>
+    <path d="M600 160 L600 300" stroke="#059669" stroke-width="2" stroke-dasharray="4 4">
+      <animate attributeName="stroke-dashoffset" from="0" to="-20" dur="1s" repeatCount="indefinite"></animate>
+    </path>
+  </g>
+
+  <!-- 향상된 수치 표시 -->
+  <g opacity="0">
+    <animate attributeName="opacity" from="0" to="1" begin="3.5s" dur="0.8s" fill="freeze"></animate>
+    <rect x="650" y="340" width="100" height="50" rx="8" fill="white" stroke="#059669" stroke-width="2"></rect>
+    <text x="700" y="368" font-family="'Pretendard', sans-serif" font-size="22" font-weight="800" fill="#059669" text-anchor="middle">+9%</text>
+    <text x="700" y="410" font-family="'Pretendard', sans-serif" font-size="14" font-weight="500" fill="#737373" text-anchor="middle">정확도 향상</text>
+  </g>
+
+  <!-- 설명 캡션 -->
+  <text x="400" y="560" font-family="'Pretendard', sans-serif" font-size="16" fill="#737373" text-anchor="middle">전통적 금융 데이터에 위치 정보를 결합하여 신용 평가의 정밀도를 극대화합니다.</text>
+</svg>

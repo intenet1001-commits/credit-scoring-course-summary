@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: 100%;">
+  <!-- 배경 -->
+  <rect width="800" height="600" fill="#f8f7f4"></rect>
+
+  <!-- 제목 -->
+  <text x="400" y="44" font-family="'Pretendard', sans-serif" font-size="24" font-weight="700" fill="#0a0a0a" text-anchor="middle">AI 인터뷰를 통한 생각의 구조화</text>
+
+  <!-- 사용자 아이콘 (좌측) -->
+  <g transform="translate(120, 420)">
+    <circle cx="40" cy="40" r="30" fill="#e5e5e5" stroke="#0a0a0a" stroke-width="2"></circle>
+    <path d="M10,110 Q40,70 70,110" fill="none" stroke="#0a0a0a" stroke-width="2"></path>
+    <text x="40" y="130" font-family="'Pretendard', sans-serif" font-size="16" font-weight="500" fill="#0a0a0a" text-anchor="middle">사용자</text>
+  </g>
+
+  <!-- AI 아이콘 (우측) -->
+  <g transform="translate(600, 420)">
+    <rect x="10" y="10" width="60" height="50" rx="8" fill="#f5f5f4" stroke="#2563eb" stroke-width="2"></rect>
+    <circle cx="30" cy="35" r="4" fill="#2563eb"></circle>
+    <circle cx="50" cy="35" r="4" fill="#2563eb"></circle>
+    <path d="M40,10 V0 M30,0 H50" stroke="#2563eb" stroke-width="2"></path>
+    <path d="M10,110 Q40,80 70,110" fill="none" stroke="#2563eb" stroke-width="2"></path>
+    <text x="40" y="130" font-family="'Pretendard', sans-serif" font-size="16" font-weight="500" fill="#2563eb" text-anchor="middle">AI 어시스턴트</text>
+    
+    <!-- AI 활성화 효과 -->
+    <circle cx="40" cy="35" r="40" fill="#2563eb" opacity="0">
+      <animate attributeName="opacity" values="0;0.1;0" dur="2s" begin="3s;7s" repeatCount="1"></animate>
+      <animate attributeName="r" values="30;50;30" dur="2s" begin="3s;7s" repeatCount="1"></animate>
+    </circle>
+  </g>
+
+  <!-- 생각 풍선 (사용자 위) -->
+  <g transform="translate(80, 180)">
+    <path d="M20,100 Q0,100 0,70 Q0,20 80,20 Q160,20 160,70 Q160,100 120,100 L100,130 L80,100 Z" fill="white" stroke="#737373" stroke-width="2"></path>
+    
+    <!-- 뒤엉킨 생각 (초기 상태) -->
+    <g id="jumbled-thoughts">
+      <path d="M40,50 Q60,80 80,40 T120,70" fill="none" stroke="#737373" stroke-width="2">
+        <animate attributeName="opacity" values="1;1;0" dur="10s" repeatCount="indefinite"></animate>
+      </path>
+      <path d="M50,70 Q90,30 110,80" fill="none" stroke="#737373" stroke-width="2">
+        <animate attributeName="opacity" values="1;1;0" dur="10s" repeatCount="indefinite"></animate>
+      </path>
+      <animate attributeName="opacity" values="1;1;0" keyTimes="0;0.7;0.8" dur="10s" repeatCount="indefinite"></animate>
+    </g>
+
+    <!-- 구조화된 생각 (최종 상태) -->
+    <g id="clear-thoughts" opacity="0">
+      <rect x="40" y="45" width="80" height="8" rx="4" fill="#2563eb"></rect>
+      <rect x="40" y="60" width="60" height="8" rx="4" fill="#2563eb"></rect>
+      <rect x="40" y="75" width="70" height="8" rx="4" fill="#2563eb"></rect>
+      <animate attributeName="opacity" values="0;0;1" keyTimes="0;0.8;0.9" dur="10s" repeatCount="indefinite"></animate>
+    </g>
+  </g>
+
+  <!-- 대화 흐름 애니메이션 -->
+  
+  <!-- 1. 프롬프트 입력 -->
+  <g transform="translate(240, 380)" opacity="0">
+    <rect width="320" height="40" rx="20" fill="#2563eb"></rect>
+    <text x="160" y="22" font-family="'Pretendard', sans-serif" font-size="14" fill="white" text-anchor="middle">"보고서 작성을 위해 저를 인터뷰해 주세요"</text>
+    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.3;0.35" dur="10s" repeatCount="indefinite" begin="1s"></animate>
+    <animateTransform attributeName="transform" type="translate" from="160 420" to="240 380" dur="0.5s" begin="1s" fill="freeze"></animateTransform>
+  </g>
+
+  <!-- 2. AI 질문 -->
+  <g transform="translate(280, 300)" opacity="0">
+    <rect width="240" height="40" rx="8" fill="#f5f5f4" stroke="#2563eb" stroke-width="1"></rect>
+    <text x="120" y="22" font-family="'Pretendard', sans-serif" font-size="14" fill="#0a0a0a" text-anchor="middle">"1. 이 보고서의 핵심 목표는?"</text>
+    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.4;0.45" dur="10s" repeatCount="indefinite" begin="3.5s"></animate>
+  </g>
+
+  <!-- 3. 사용자 답변 -->
+  <g transform="translate(280, 350)" opacity="0">
+    <rect width="240" height="40" rx="8" fill="#e5e5e5" stroke="#737373" stroke-width="1"></rect>
+    <text x="120" y="22" font-family="'Pretendard', sans-serif" font-size="14" fill="#0a0a0a" text-anchor="middle">"신규 시장 진출 전략 수립입니다."</text>
+    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.3;0.35" dur="10s" repeatCount="indefinite" begin="5.5s"></animate>
+  </g>
+
+  <!-- 4. AI 추가 질문 -->
+  <g transform="translate(280, 300)" opacity="0">
+    <rect width="240" height="40" rx="8" fill="#f5f5f4" stroke="#2563eb" stroke-width="1"></rect>
+    <text x="120" y="22" font-family="'Pretendard', sans-serif" font-size="14" fill="#0a0a0a" text-anchor="middle">"2. 타겟 고객층은 누구인가요?"</text>
+    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.4;0.45" dur="10s" repeatCount="indefinite" begin="7.5s"></animate>
+  </g>
+
+  <!-- 연결선 (메타포: 흐름) -->
+  <path d="M200,450 L600,450" stroke="#e5e5e5" stroke-width="2" stroke-dasharray="8 4"></path>
+  
+  <!-- 하단 설명 텍스트 -->
+  <text x="400" y="550" font-family="'Pretendard', sans-serif" font-size="16" font-weight="500" fill="#737373" text-anchor="middle">
+    질문을 위임함으로써 모호한 생각이 명확한 문맥으로 바뀝니다.
+    <animate attributeName="opacity" values="0;0;1" keyTimes="0;0.7;0.8" dur="10s" repeatCount="indefinite"></animate>
+  </text>
+</svg>

@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: 100%;">
+  <!-- 배경 -->
+  <rect width="800" height="600" fill="#f8f7f4"></rect>
+  
+  <!-- 제목 -->
+  <text x="400" y="44" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="24" font-weight="700" fill="#0a0a0a">AI: 단순 도구에서 협력하는 동료로</text>
+
+  <!-- 구분선 -->
+  <line x1="80" y1="300" x2="720" y2="300" stroke="#e5e5e5" stroke-width="2" stroke-dasharray="8 8"></line>
+
+  <!-- 상단: 도구로서의 AI (단순 명령) -->
+  <g id="tool-section">
+    <text x="80" y="100" text-anchor="start" font-family="'Pretendard', sans-serif" font-size="16" font-weight="700" fill="#737373">CASE 1. 단순 도구로 대할 때</text>
+    
+    <!-- 사용자 (좌) -->
+    <g transform="translate(120, 180)">
+      <circle cx="0" cy="0" r="24" fill="#e5e5e5" stroke="#0a0a0a" stroke-width="2"></circle>
+      <path d="M-12,12 Q0,24 12,12" fill="none" stroke="#0a0a0a" stroke-width="2"></path>
+      <!-- 눈 (실망) -->
+      <path d="M-8,-4 L-4,0 M-8,0 L-4,-4" stroke="#0a0a0a" stroke-width="2"></path>
+      <path d="M4,-4 L8,0 M4,0 L8,-4" stroke="#0a0a0a" stroke-width="2"></path>
+      <text y="48" text-anchor="middle" font-size="14" fill="#0a0a0a">사용자</text>
+    </g>
+
+    <!-- AI (우) -->
+    <g transform="translate(680, 180)">
+      <rect x="-24" y="-24" width="48" height="48" rx="8" fill="#f5f5f4" stroke="#0a0a0a" stroke-width="2"></rect>
+      <circle cx="-10" cy="-4" r="3" fill="#0a0a0a"></circle>
+      <circle cx="10" cy="-4" r="3" fill="#0a0a0a"></circle>
+      <path d="M-10,10 H10" stroke="#0a0a0a" stroke-width="2"></path>
+      <text y="48" text-anchor="middle" font-size="14" fill="#0a0a0a">AI</text>
+    </g>
+
+    <!-- 프롬프트 이동 (단순) -->
+    <g opacity="0">
+      <rect x="0" y="0" width="100" height="32" rx="16" fill="#7c3aed"></rect>
+      <text x="50" y="16" text-anchor="middle" dominant-baseline="middle" font-size="12" fill="white">요약해줘!</text>
+      <animateMotion path="M 160,180 L 600,180" dur="3s" repeatCount="indefinite" begin="0s"></animateMotion>
+      <animate attributeName="opacity" values="0;1;1;0" dur="3s" repeatCount="indefinite" begin="0s"></animate>
+    </g>
+
+    <!-- 결과 이동 (불만족) -->
+    <g opacity="0">
+      <rect x="0" y="0" width="120" height="32" rx="4" fill="#e5e5e5" stroke="#737373" stroke-width="1"></rect>
+      <text x="60" y="16" text-anchor="middle" dominant-baseline="middle" font-size="12" fill="#737373">일반적인 결과물</text>
+      <animateMotion path="M 600,210 L 160,210" dur="3s" repeatCount="indefinite" begin="1.5s"></animateMotion>
+      <animate attributeName="opacity" values="0;1;1;0" dur="3s" repeatCount="indefinite" begin="1.5s"></animate>
+    </g>
+  </g>
+
+  <!-- 하단: 동료로서의 AI (맥락과 피드백) -->
+  <g id="colleague-section">
+    <text x="80" y="340" text-anchor="start" font-family="'Pretendard', sans-serif" font-size="16" font-weight="700" fill="#7c3aed">CASE 2. 훈련 가능한 동료로 대할 때</text>
+
+    <!-- 사용자 (좌) -->
+    <g transform="translate(120, 440)">
+      <circle cx="0" cy="0" r="24" fill="#f5f5f4" stroke="#0a0a0a" stroke-width="2"></circle>
+      <!-- 눈 (웃음) -->
+      <path d="M-10,-2 Q-6,-8 -2,-2" fill="none" stroke="#0a0a0a" stroke-width="2"></path>
+      <path d="M2,-2 Q6,-8 10,-2" fill="none" stroke="#0a0a0a" stroke-width="2"></path>
+      <path d="M-8,8 Q0,16 8,8" fill="none" stroke="#0a0a0a" stroke-width="2"></path>
+      <text y="48" text-anchor="middle" font-size="14" fill="#0a0a0a">사용자</text>
+    </g>
+
+    <!-- AI (우) -->
+    <g transform="translate(680, 440)">
+      <rect x="-24" y="-24" width="48" height="48" rx="8" fill="#f5f5f4" stroke="#7c3aed" stroke-width="2">
+        <animate attributeName="stroke-width" values="2;4;2" dur="2s" repeatCount="indefinite"></animate>
+      </rect>
+      <circle cx="-10" cy="-4" r="3" fill="#7c3aed"></circle>
+      <circle cx="10" cy="-4" r="3" fill="#7c3aed"></circle>
+      <path d="M-10,10 Q0,14 10,10" fill="none" stroke="#7c3aed" stroke-width="2"></path>
+      <text y="48" text-anchor="middle" font-size="14" fill="#0a0a0a">AI 동료</text>
+    </g>
+
+    <!-- 프롬프트 이동 (상세 맥락) -->
+    <g opacity="0">
+      <rect x="0" y="0" width="160" height="40" rx="8" fill="#7c3aed"></rect>
+      <text x="80" y="20" text-anchor="middle" dominant-baseline="middle" font-size="12" fill="white">맥락 설명 + 상세 가이드</text>
+      <animateMotion path="M 160,420 L 600,420" dur="4s" repeatCount="indefinite" begin="0s"></animateMotion>
+      <animate attributeName="opacity" values="0;1;1;0" dur="4s" repeatCount="indefinite" begin="0s"></animate>
+    </g>
+
+    <!-- 피드백 루프 (순환 화살표) -->
+    <path d="M 640,460 Q 400,520 160,460" fill="none" stroke="#7c3aed" stroke-width="2" stroke-dasharray="5 5" opacity="0.5">
+        <animate attributeName="stroke-dashoffset" from="100" to="0" dur="4s" repeatCount="indefinite"></animate>
+    </path>
+
+    <!-- 결과 이동 (최적화) -->
+    <g opacity="0">
+      <rect x="0" y="0" width="140" height="40" rx="8" fill="white" stroke="#7c3aed" stroke-width="2"></rect>
+      <text x="70" y="20" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="700" fill="#7c3aed">나에게 맞춘 최적의 결과</text>
+      <animateMotion path="M 600,460 L 160,460" dur="4s" repeatCount="indefinite" begin="2s"></animateMotion>
+      <animate attributeName="opacity" values="0;1;1;0" dur="4s" repeatCount="indefinite" begin="2s"></animate>
+    </g>
+  </g>
+
+  <!-- 하단 캡션 -->
+  <rect x="200" y="540" width="400" height="36" rx="18" fill="#f5f5f4"></rect>
+  <text x="400" y="558" text-anchor="middle" dominant-baseline="middle" font-family="'Pretendard', sans-serif" font-size="14" fill="#737373">
+    AI는 도구가 아니라, 가르치며 함께 성장하는 <tspan fill="#7c3aed" font-weight="700">동료</tspan>입니다.
+  </text>
+</svg>

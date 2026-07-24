@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet" style="background-color: rgb(248, 247, 244); font-family: Pretendard, -apple-system, sans-serif; width: 100%; height: 100%;">
+  <!-- Definitions for Clipping and Motion -->
+  <defs>
+    <clipPath id="lens-clip">
+      <circle r="70">
+        <animateMotion dur="6s" repeatCount="indefinite" path="M 350,250 C 650,150 650,450 450,450 C 250,450 150,150 350,250"></animateMotion>
+      </circle>
+    </clipPath>
+    
+    <!-- Data Point Pattern -->
+    <symbol id="data-network">
+      <!-- Connections -->
+      <g stroke-width="1.5">
+        <line x1="300" y1="200" x2="400" y2="350"></line>
+        <line x1="400" y1="350" x2="550" y2="250"></line>
+        <line x1="550" y1="250" x2="600" y2="400"></line>
+        <line x1="600" y1="400" x2="450" y2="480"></line>
+        <line x1="450" y1="480" x2="300" y2="400"></line>
+        <line x1="300" y1="400" x2="300" y2="200"></line>
+        <line x1="400" y1="350" x2="300" y2="400"></line>
+        <line x1="550" y1="250" x2="450" y2="480"></line>
+        <line x1="350" y1="280" x2="500" y2="380"></line>
+        <line x1="500" y1="380" x2="580" y2="220"></line>
+      </g>
+      <!-- Points -->
+      <g>
+        <circle cx="300" cy="200" r="6"></circle>
+        <circle cx="400" cy="350" r="6"></circle>
+        <circle cx="550" cy="250" r="6"></circle>
+        <circle cx="600" cy="400" r="6"></circle>
+        <circle cx="450" cy="480" r="6"></circle>
+        <circle cx="300" cy="400" r="6"></circle>
+        <circle cx="350" cy="280" r="6"></circle>
+        <circle cx="500" cy="380" r="6"></circle>
+        <circle cx="580" cy="220" r="6"></circle>
+      </g>
+    </symbol>
+  </defs>
+
+  <!-- Title -->
+  <text x="400" y="44" text-anchor="middle" font-size="24" font-weight="700" fill="#0a0a0a">AI를 통한 데이터 속 숨겨진 패턴 발견</text>
+
+  <!-- Traditional Model (Ruler) -->
+  <g transform="translate(60, 220)">
+    <rect x="0" y="0" width="40" height="200" fill="#f5f5f4" stroke="#737373" stroke-width="2" rx="4"></rect>
+    <!-- Ruler Marks -->
+    <line x1="0" y1="20" x2="20" y2="20" stroke="#737373" stroke-width="1"></line>
+    <line x1="0" y1="40" x2="15" y2="40" stroke="#737373" stroke-width="1"></line>
+    <line x1="0" y1="60" x2="20" y2="60" stroke="#737373" stroke-width="1"></line>
+    <line x1="0" y1="80" x2="15" y2="80" stroke="#737373" stroke-width="1"></line>
+    <line x1="0" y1="100" x2="25" y2="100" stroke="#737373" stroke-width="2"></line>
+    <line x1="0" y1="120" x2="15" y2="120" stroke="#737373" stroke-width="1"></line>
+    <line x1="0" y1="140" x2="20" y2="140" stroke="#737373" stroke-width="1"></line>
+    <line x1="0" y1="160" x2="15" y2="160" stroke="#737373" stroke-width="1"></line>
+    <line x1="0" y1="180" x2="20" y2="180" stroke="#737373" stroke-width="1"></line>
+    
+    <text x="20" y="220" text-anchor="middle" font-size="14" font-weight="500" fill="#737373">전통적 통계 모델</text>
+    <text x="20" y="240" text-anchor="middle" font-size="12" fill="#a3a3a3">(제한된 분석 범위)</text>
+    
+    <!-- Limited Scope Indicator -->
+    <rect x="50" y="80" width="100" height="40" fill="none" stroke="#e5e5e5" stroke-dasharray="4"></rect>
+    <text x="100" y="100" text-anchor="middle" font-size="12" fill="#737373">선형적 분석</text>
+  </g>
+
+  <!-- Base Network (Gray/Hidden) -->
+  <g stroke="#e5e5e5" fill="#e5e5e5">
+    <use href="#data-network"></use>
+  </g>
+
+  <!-- Highlighted Network (Clipped) -->
+  <g stroke="#7c3aed" fill="#7c3aed" clip-path="url(#lens-clip)">
+    <use href="#data-network" stroke-width="3"></use>
+    <!-- Additional "Hidden" Relationships -->
+    <line x1="300" y1="200" x2="600" y2="400" stroke-width="2" stroke-dasharray="4"></line>
+    <line x1="300" y1="400" x2="550" y2="250" stroke-width="2" stroke-dasharray="4"></line>
+  </g>
+
+  <!-- Magnifying Glass UI -->
+  <g>
+    <animateMotion dur="6s" repeatCount="indefinite" path="M 350,250 C 650,150 650,450 450,450 C 250,450 150,150 350,250"></animateMotion>
+    
+    <!-- Handle -->
+    <line x1="50" y1="50" x2="100" y2="100" stroke="#0a0a0a" stroke-width="12" stroke-linecap="round"></line>
+    <!-- Lens Frame -->
+    <circle cx="0" cy="0" r="70" fill="none" stroke="#0a0a0a" stroke-width="4"></circle>
+    <!-- Lens Reflection -->
+    <path d="M -40 -20 A 50 50 0 0 1 -20 -40" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.6"></path>
+    
+    <!-- Label Box -->
+    <rect x="-45" y="-95" width="90" height="24" rx="12" fill="#7c3aed"></rect>
+    <text x="0" y="-83" text-anchor="middle" dominant-baseline="middle" font-size="14" font-weight="700" fill="white">AI 분석</text>
+  </g>
+
+  <!-- Legend/Description -->
+  <g transform="translate(400, 550)">
+    <text x="0" y="0" text-anchor="middle" font-size="15" fill="#737373">AI는 복잡한 데이터 간의 비선형적 관계와 숨겨진 패턴을 시각화합니다.</text>
+  </g>
+</svg>

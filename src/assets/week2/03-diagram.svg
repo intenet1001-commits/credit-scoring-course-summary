@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: 100%;">
+  <!-- 배경 -->
+  <rect width="800" height="600" fill="#f8f7f4"></rect>
+
+  <!-- 제목 -->
+  <text x="400" y="60" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="26" font-weight="700" fill="#0a0a0a">신용평가 모델 통합 및 등급 산출 프로세스</text>
+
+  <!-- 정의: 톱니바퀴 조각 -->
+  <defs>
+    <g id="small-gear">
+      <circle cx="0" cy="0" r="35" fill="#2563eb"></circle>
+      <rect x="-8" y="-45" width="16" height="90" rx="2" fill="#2563eb"></rect>
+      <rect x="-8" y="-45" width="16" height="90" rx="2" fill="#2563eb" transform="rotate(45)"></rect>
+      <rect x="-8" y="-45" width="16" height="90" rx="2" fill="#2563eb" transform="rotate(90)"></rect>
+      <rect x="-8" y="-45" width="16" height="90" rx="2" fill="#2563eb" transform="rotate(135)"></rect>
+      <circle cx="0" cy="0" r="12" fill="#f8f7f4"></circle>
+    </g>
+    
+    <g id="large-gear">
+      <circle cx="0" cy="0" r="80" fill="#2563eb"></circle>
+      <rect x="-12" y="-95" width="24" height="190" rx="4" fill="#2563eb"></rect>
+      <rect x="-12" y="-95" width="24" height="190" rx="4" fill="#2563eb" transform="rotate(30)"></rect>
+      <rect x="-12" y="-95" width="24" height="190" rx="4" fill="#2563eb" transform="rotate(60)"></rect>
+      <rect x="-12" y="-95" width="24" height="190" rx="4" fill="#2563eb" transform="rotate(90)"></rect>
+      <rect x="-12" y="-95" width="24" height="190" rx="4" fill="#2563eb" transform="rotate(120)"></rect>
+      <rect x="-12" y="-95" width="24" height="190" rx="4" fill="#2563eb" transform="rotate(150)"></rect>
+      <circle cx="0" cy="0" r="30" fill="#f8f7f4"></circle>
+    </g>
+  </defs>
+
+  <!-- 입력 모델 그룹 -->
+  <g transform="translate(260, 300)">
+    <!-- 정량 모형 톱니 -->
+    <g transform="translate(-80, -70)">
+      <g>
+        <use href="#small-gear"></use>
+        <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="4s" repeatCount="indefinite"></animateTransform>
+      </g>
+      <text y="70" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="16" font-weight="600" fill="#0a0a0a">정량 모형</text>
+    </g>
+
+    <!-- 정성 모형 톱니 -->
+    <g transform="translate(10, -70)">
+      <g>
+        <use href="#small-gear"></use>
+        <animateTransform attributeName="transform" type="rotate" from="22.5" to="-337.5" dur="4s" repeatCount="indefinite"></animateTransform>
+      </g>
+      <text y="70" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="16" font-weight="600" fill="#0a0a0a">정성 모형</text>
+    </g>
+
+    <!-- 대표자 모형 톱니 -->
+    <g transform="translate(-35, 70)">
+      <g>
+        <use href="#small-gear"></use>
+        <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="4s" repeatCount="indefinite"></animateTransform>
+      </g>
+      <text y="70" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="16" font-weight="600" fill="#0a0a0a">대표자 모형</text>
+    </g>
+  </g>
+
+  <!-- 연결 화살표 -->
+  <g transform="translate(380, 300)">
+    <line x1="0" y1="0" x2="80" y2="0" stroke="#e5e5e5" stroke-width="4" stroke-dasharray="8,4">
+      <animate attributeName="stroke-dashoffset" from="12" to="0" dur="1s" repeatCount="indefinite"></animate>
+    </line>
+    <path d="M75 -8 L85 0 L75 8" fill="none" stroke="#e5e5e5" stroke-width="4"></path>
+  </g>
+
+  <!-- 최종 신용등급 결과 -->
+  <g transform="translate(580, 300)" opacity="0">
+    <animate attributeName="opacity" from="0" to="1" begin="1s" dur="1.5s" fill="freeze"></animate>
+    
+    <!-- 큰 톱니바퀴 -->
+    <g>
+      <use href="#large-gear"></use>
+      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="8s" repeatCount="indefinite"></animateTransform>
+    </g>
+    
+    <!-- 등급 텍스트 -->
+    <text y="5" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="32" font-weight="800" fill="#2563eb">
+      A+
+      <animate attributeName="opacity" from="0" to="1" begin="2s" dur="0.5s" fill="freeze"></animate>
+    </text>
+    
+    <!-- 라벨 -->
+    <text y="120" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="18" font-weight="700" fill="#0a0a0a">최종 신용등급</text>
+  </g>
+
+  <!-- 하단 설명 -->
+  <rect x="200" y="520" width="400" height="40" rx="20" fill="#f5f5f4"></rect>
+  <text x="400" y="545" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="14" fill="#737373">각 평가 모델이 유기적으로 결합되어 객관적인 등급을 산출합니다.</text>
+</svg>

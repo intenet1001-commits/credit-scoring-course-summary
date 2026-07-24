@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: 100%;">
+  <!-- 배경 -->
+  <rect width="800" height="600" fill="#f8f7f4"></rect>
+
+  <!-- 제목 -->
+  <text x="400" y="44" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="24" font-weight="700" fill="#0a0a0a">신용 평가 및 대출 승인 프로세스</text>
+
+  <!-- 은행 (Lender) -->
+  <g transform="translate(550, 250)">
+    <rect x="0" y="50" width="160" height="120" fill="#f5f5f4" stroke="#0a0a0a" stroke-width="2"></rect>
+    <path d="M0 50 L80 0 L160 50 Z" fill="#e5e5e5" stroke="#0a0a0a" stroke-width="2"></path>
+    <rect x="20" y="80" width="20" height="90" fill="#e5e5e5" stroke="#0a0a0a" stroke-width="2"></rect>
+    <rect x="70" y="80" width="20" height="90" fill="#e5e5e5" stroke="#0a0a0a" stroke-width="2"></rect>
+    <rect x="120" y="80" width="20" height="90" fill="#e5e5e5" stroke="#0a0a0a" stroke-width="2"></rect>
+    <text x="80" y="190" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="16" font-weight="500" fill="#737373">은행 (금융기관)</text>
+  </g>
+
+  <!-- 대출 신청자 (Borrower) -->
+  <g id="borrower" transform="translate(100, 320)">
+    <!-- 사람 아이콘 -->
+    <circle cx="40" cy="0" r="20" fill="#f5f5f4" stroke="#0a0a0a" stroke-width="2"></circle>
+    <path d="M10 70 Q40 30 70 70 L70 120 L10 120 Z" fill="#f5f5f4" stroke="#0a0a0a" stroke-width="2"></path>
+    
+    <!-- 물음표 (초기 상태) -->
+    <text id="status_q" x="40" y="-40" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="30" font-weight="700" fill="#737373">?
+      <animate attributeName="opacity" from="1" to="0" dur="0.5s" begin="assessment.end" fill="freeze"></animate>
+    </text>
+
+    <text x="40" y="145" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="16" font-weight="500" fill="#737373">대출 신청자</text>
+
+    <!-- 이동 애니메이션 -->
+    <animateTransform id="move_forward" attributeName="transform" type="translate" from="100, 320" to="250, 320" dur="1.5s" begin="1s" fill="freeze"></animateTransform>
+  </g>
+
+  <!-- 돋보기 (Credit Assessment) -->
+  <g id="magnifier" opacity="0" transform="translate(550, 300)">
+    <line x1="35" y1="35" x2="70" y2="70" stroke="#0a0a0a" stroke-width="6" stroke-linecap="round"></line>
+    <circle cx="0" cy="0" r="45" fill="white" stroke="#0a0a0a" stroke-width="3" fill-opacity="0.9"></circle>
+    <text id="score_text" x="0" y="5" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="18" font-weight="700" fill="#059669" opacity="0">850점
+      <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="assessment.end" fill="freeze"></animate>
+    </text>
+    
+    <!-- 돋보기 등장 및 이동 -->
+    <animate id="show_mag" attributeName="opacity" from="0" to="1" dur="0.5s" begin="move_forward.end" fill="freeze"></animate>
+    <animateTransform id="assessment" attributeName="transform" type="translate" from="550, 300" to="330, 350" dur="1.5s" begin="show_mag.end" fill="freeze"></animateTransform>
+    <animate id="hide_mag" attributeName="opacity" from="1" to="0" dur="0.5s" begin="approval.end" fill="freeze"></animate>
+  </g>
+
+  <!-- 라벨: 신용 평가 중 -->
+  <text id="eval_label" x="400" y="220" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="16" font-weight="500" fill="#059669" opacity="0">
+    신용도 분석 중...
+    <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="show_mag.end" fill="freeze"></animate>
+    <animate attributeName="opacity" from="1" to="0" dur="0.5s" begin="assessment.end + 1s" fill="freeze"></animate>
+  </text>
+
+  <!-- 승인 결과 -->
+  <g id="approval" opacity="0" transform="translate(290, 240)">
+    <rect x="0" y="0" width="100" height="40" rx="20" fill="#059669"></rect>
+    <text x="50" y="22" text-anchor="middle" dominant-baseline="middle" font-family="'Pretendard', sans-serif" font-size="16" font-weight="700" fill="white">대출 승인</text>
+    
+    <animate id="show_approval" attributeName="opacity" from="0" to="1" dur="0.5s" begin="assessment.end + 1s" fill="freeze"></animate>
+    <animateTransform attributeName="transform" type="translate" from="290, 260" to="290, 240" dur="0.5s" begin="assessment.end + 1s" fill="freeze"></animateTransform>
+  </g>
+
+  <!-- 화폐 흐름 (결과 메타포) -->
+  <g opacity="0">
+    <circle r="10" fill="#ea580c">
+      <animateMotion path="M 550 400 L 350 400" dur="1s" begin="show_approval.end" repeatCount="3"></animateMotion>
+    </circle>
+    <circle r="10" fill="#ea580c">
+      <animateMotion path="M 550 400 L 350 400" dur="1s" begin="show_approval.end + 0.3s" repeatCount="3"></animateMotion>
+    </circle>
+    <circle r="10" fill="#ea580c">
+      <animateMotion path="M 550 400 L 350 400" dur="1s" begin="show_approval.end + 0.6s" repeatCount="3"></animateMotion>
+    </circle>
+    <animate attributeName="opacity" from="0" to="1" dur="0.1s" begin="show_approval.end" fill="freeze"></animate>
+  </g>
+
+  <!-- 설명 텍스트 -->
+  <text x="400" y="540" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="14" fill="#737373">금융기관은 신용 점수를 통해 신청자의 신뢰도를 평가합니다.</text>
+</svg>

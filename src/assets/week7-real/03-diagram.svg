@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: 100%;">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8f7f4"></rect>
+
+  <!-- Title -->
+  <text x="400" y="60" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="26" font-weight="700" fill="#0a0a0a">AI 신용평가 3단계 검증 체계</text>
+
+  <!-- Connection Line -->
+  <path d="M 200 300 L 600 300" stroke="#e5e5e5" stroke-width="4" stroke-dasharray="8 8"></path>
+  
+  <!-- Step 1: Self-Check -->
+  <g transform="translate(200, 300)">
+    <!-- Shield Shape -->
+    <path id="shield1" d="M 0 -80 L 70 -60 L 70 20 C 70 70 0 100 0 100 C 0 100 -70 70 -70 20 L -70 -60 Z" fill="#f5f5f4" stroke="#2563eb" stroke-width="3" opacity="0">
+      <animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.5s" fill="freeze"></animate>
+      <animate transform="scale" attributeName="transform" type="scale" from="0.8" to="1" dur="0.6s" begin="0.5s" fill="freeze"></animate>
+    </path>
+    
+    <!-- Icon: Self-Check (Magnifying Glass + Check) -->
+    <g opacity="0">
+      <circle cx="0" cy="-10" r="25" fill="none" stroke="#2563eb" stroke-width="3"></circle>
+      <path d="M -10 -10 L -2 -2 L 12 -16" fill="none" stroke="#2563eb" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+      <line x1="18" y1="8" x2="28" y2="18" stroke="#2563eb" stroke-width="4" stroke-linecap="round"></line>
+      <animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.8s" fill="freeze"></animate>
+    </g>
+
+    <!-- Label -->
+    <rect x="-60" y="120" width="120" height="36" rx="18" fill="#ffffff" stroke="#e5e5e5" opacity="0">
+      <animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="1.0s" fill="freeze"></animate>
+    </rect>
+    <text x="0" y="138" text-anchor="middle" dominant-baseline="middle" font-family="'Pretendard', sans-serif" font-size="16" font-weight="600" fill="#0a0a0a" opacity="0">
+      자체 점검
+      <animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="1.0s" fill="freeze"></animate>
+    </text>
+  </g>
+
+  <!-- Step 2: Government Approval -->
+  <g transform="translate(400, 300)">
+    <!-- Shield Shape -->
+    <path id="shield2" d="M 0 -80 L 70 -60 L 70 20 C 70 70 0 100 0 100 C 0 100 -70 70 -70 20 L -70 -60 Z" fill="#f5f5f4" stroke="#2563eb" stroke-width="3" opacity="0">
+      <animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="1.5s" fill="freeze"></animate>
+      <animate transform="scale" attributeName="transform" type="scale" from="0.8" to="1" dur="0.6s" begin="1.5s" fill="freeze"></animate>
+    </path>
+    
+    <!-- Icon: Government (Building/Seal) -->
+    <g opacity="0">
+      <path d="M -25 15 L 25 15 M -20 15 L -20 -5 M 20 15 L 20 -5 M -25 -5 L 25 -5 L 0 -25 Z" fill="none" stroke="#2563eb" stroke-width="3" stroke-linejoin="round"></path>
+      <rect x="-5" y="0" width="10" height="15" fill="none" stroke="#2563eb" stroke-width="2"></rect>
+      <animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="1.8s" fill="freeze"></animate>
+    </g>
+
+    <!-- Label -->
+    <rect x="-60" y="120" width="120" height="36" rx="18" fill="#ffffff" stroke="#e5e5e5" opacity="0">
+      <animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="2.0s" fill="freeze"></animate>
+    </rect>
+    <text x="0" y="138" text-anchor="middle" dominant-baseline="middle" font-family="'Pretendard', sans-serif" font-size="16" font-weight="600" fill="#0a0a0a" opacity="0">
+      정부 승인
+      <animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="2.0s" fill="freeze"></animate>
+    </text>
+  </g>
+
+  <!-- Step 3: Committee -->
+  <g transform="translate(600, 300)">
+    <!-- Shield Shape -->
+    <path id="shield3" d="M 0 -80 L 70 -60 L 70 20 C 70 70 0 100 0 100 C 0 100 -70 70 -70 20 L -70 -60 Z" fill="#f5f5f4" stroke="#2563eb" stroke-width="3" opacity="0">
+      <animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="2.5s" fill="freeze"></animate>
+      <animate transform="scale" attributeName="transform" type="scale" from="0.8" to="1" dur="0.6s" begin="2.5s" fill="freeze"></animate>
+    </path>
+    
+    <!-- Icon: Committee (Group) -->
+    <g opacity="0">
+      <circle cx="0" cy="-15" r="10" fill="none" stroke="#2563eb" stroke-width="3"></circle>
+      <path d="M -20 15 C -20 0 20 0 20 15" fill="none" stroke="#2563eb" stroke-width="3"></path>
+      <circle cx="-22" cy="-5" r="7" fill="none" stroke="#2563eb" stroke-width="2"></circle>
+      <circle cx="22" cy="-5" r="7" fill="none" stroke="#2563eb" stroke-width="2"></circle>
+      <animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="2.8s" fill="freeze"></animate>
+    </g>
+
+    <!-- Label -->
+    <rect x="-60" y="120" width="120" height="36" rx="18" fill="#ffffff" stroke="#e5e5e5" opacity="0">
+      <animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="3.0s" fill="freeze"></animate>
+    </rect>
+    <text x="0" y="138" text-anchor="middle" dominant-baseline="middle" font-family="'Pretendard', sans-serif" font-size="16" font-weight="600" fill="#0a0a0a" opacity="0">
+      위원회 심의
+      <animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="3.0s" fill="freeze"></animate>
+    </text>
+  </g>
+
+  <!-- Verification Pulse Animation -->
+  <circle cx="200" cy="300" r="10" fill="#2563eb" opacity="0">
+    <animate id="pulse" attributeName="cx" values="200;400;600" dur="3s" begin="4s;pulse.end+2s" fill="freeze"></animate>
+    <animate attributeName="opacity" values="0;0.8;0.8;0" keyTimes="0;0.1;0.9;1" dur="3s" begin="4s;pulse.end+2s" fill="freeze"></animate>
+    <animate attributeName="r" values="10;20;10" dur="1s" repeatCount="3" begin="4s;pulse.end+2s"></animate>
+  </circle>
+
+  <!-- Bottom Description -->
+  <text x="400" y="520" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="14" fill="#737373" opacity="0">
+    신뢰할 수 있는 AI 신용평가를 위한 다층적 검증 프로세스
+    <animate attributeName="opacity" from="0" to="1" dur="1s" begin="3.5s" fill="freeze"></animate>
+  </text>
+</svg>

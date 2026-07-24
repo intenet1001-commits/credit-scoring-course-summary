@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: 100%;">
+  <!-- 배경 -->
+  <rect width="800" height="600" fill="#f8f7f4"></rect>
+
+  <!-- 제목 -->
+  <text x="400" y="44" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="24" font-weight="700" fill="#0a0a0a">신용평가 데이터 선택 및 정제 프로세스</text>
+
+  <!-- 깔때기 구조 (Funnel) -->
+  <path d="M 200 100 L 600 100 L 460 350 L 340 350 Z" fill="#f5f5f4" stroke="#e5e5e5" stroke-width="2"></path>
+  <path d="M 340 350 L 340 480 L 460 480 L 460 350" fill="none" stroke="#e5e5e5" stroke-width="2" stroke-dasharray="4 4"></path>
+
+  <!-- 상단: 원천 데이터 (Raw Data) -->
+  <g transform="translate(400, 80)">
+    <text text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="16" font-weight="600" fill="#737373">원천 데이터 (Raw Data)</text>
+  </g>
+
+  <!-- 흐르는 데이터 아이콘들 (반복 애니메이션) -->
+  <!-- 집 (House) -->
+  <g>
+    <path d="M-10 5 L0 -5 L10 5 L10 12 L-10 12 Z" fill="#737373">
+      <animateMotion dur="4s" repeatCount="indefinite" path="M 350 120 Q 400 250 400 520"></animateMotion>
+    </path>
+  </g>
+  <!-- 전화기 (Phone) -->
+  <g>
+    <rect x="-6" y="-10" width="12" height="20" rx="2" fill="#737373">
+      <animateMotion dur="4.5s" begin="0.5s" repeatCount="indefinite" path="M 450 120 Q 400 250 400 520"></animateMotion>
+    </rect>
+  </g>
+  <!-- 돈 (Money) -->
+  <g>
+    <circle r="10" fill="#059669">
+      <animateMotion dur="3.5s" begin="1s" repeatCount="indefinite" path="M 400 120 Q 400 250 400 520"></animateMotion>
+    </circle>
+    <text dy="1" text-anchor="middle" dominant-baseline="middle" fill="white" font-size="10" font-weight="700">₩
+      <animateMotion dur="3.5s" begin="1s" repeatCount="indefinite" path="M 400 120 Q 400 250 400 520"></animateMotion>
+    </text>
+  </g>
+
+  <!-- 필터링되어 나가는 요소들 (비금융/편향 데이터) -->
+  <!-- 아이 (Child) -->
+  <g opacity="0">
+    <circle cx="0" cy="0" r="6" fill="#e11d48"></circle>
+    <path d="M-6 12 L6 12 L4 6 L-4 6 Z" fill="#e11d48"></path>
+    <animate attributeName="opacity" values="0;1;1;0" dur="3s" repeatCount="indefinite"></animate>
+    <animateMotion dur="3s" repeatCount="indefinite" path="M 380 150 L 150 180"></animateMotion>
+  </g>
+  
+  <!-- 성별 기호 (Gender) -->
+  <g opacity="0">
+    <circle cx="0" cy="0" r="7" fill="none" stroke="#e11d48" stroke-width="2"></circle>
+    <line x1="0" y1="-7" x2="0" y2="-12" stroke="#e11d48" stroke-width="2"></line>
+    <animate attributeName="opacity" values="0;1;1;0" dur="3s" begin="1s" repeatCount="indefinite"></animate>
+    <animateMotion dur="3s" begin="1s" repeatCount="indefinite" path="M 420 180 L 650 210"></animateMotion>
+  </g>
+
+  <text x="150" y="200" text-anchor="middle" font-size="12" fill="#e11d48" font-weight="500">불필요/편향 데이터 제거</text>
+
+  <!-- 중간: 데이터 정제 (Cleaned Data) -->
+  <g transform="translate(400, 300)">
+    <rect x="-70" y="-15" width="140" height="30" rx="15" fill="#e5e5e5"></rect>
+    <text text-anchor="middle" dominant-baseline="middle" font-family="'Pretendard', sans-serif" font-size="14" font-weight="600" fill="#0a0a0a">데이터 정제</text>
+    <!-- 돋보기 아이콘 -->
+    <g transform="translate(85, 0)">
+      <circle cx="0" cy="0" r="6" fill="none" stroke="#059669" stroke-width="2"></circle>
+      <line x1="4" y1="4" x2="9" y2="9" stroke="#059669" stroke-width="2" stroke-linecap="round"></line>
+      <animateTransform attributeName="transform" type="scale" values="1;1.2;1" dur="2s" repeatCount="indefinite" additive="sum"></animateTransform>
+    </g>
+  </g>
+
+  <!-- 하단: 변수 생성 (Feature Engineering) -->
+  <g transform="translate(400, 410)">
+    <text text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="14" font-weight="600" fill="#0a0a0a">변수 생성 (Feature Engineering)</text>
+    <!-- 톱니바퀴 애니메이션 -->
+    <g transform="translate(-100, 0)">
+      <path d="M-10 -3 L-10 3 L-12 5 L-10 8 L-7 7 L-5 10 L-2 10 L0 12 L2 10 L5 10 L7 7 L10 8 L12 5 L10 3 L10 -3 L12 -5 L10 -8 L7 -7 L5 -10 L2 -10 L0 -12 L-2 -10 L-5 -10 L-7 -7 L-10 -8 L-12 -5 Z" fill="#737373">
+        <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="4s" repeatCount="indefinite"></animateTransform>
+      </path>
+    </g>
+    <g transform="translate(100, 0)">
+      <path d="M-10 -3 L-10 3 L-12 5 L-10 8 L-7 7 L-5 10 L-2 10 L0 12 L2 10 L5 10 L7 7 L10 8 L12 5 L10 3 L10 -3 L12 -5 L10 -8 L7 -7 L5 -10 L2 -10 L0 -12 L-2 -10 L-5 -10 L-7 -7 L-10 -8 L-12 -5 Z" fill="#737373">
+        <animateTransform attributeName="transform" type="rotate" from="360" to="0" dur="4s" repeatCount="indefinite"></animateTransform>
+      </path>
+    </g>
+  </g>
+
+  <!-- 최종: 신용 모델 (Credit Model) -->
+  <g transform="translate(400, 530)">
+    <rect x="-100" y="-25" width="200" height="50" rx="4" fill="#059669"></rect>
+    <text text-anchor="middle" dominant-baseline="middle" font-family="'Pretendard', sans-serif" font-size="16" font-weight="700" fill="#ffffff">신용 평가 모델링</text>
+    
+    <!-- 모델로 들어가는 화살표 -->
+    <path d="M 0 -50 L 0 -35" stroke="#059669" stroke-width="3" fill="none" marker-end="url(#arrowhead)"></path>
+  </g>
+
+  <!-- 화살표 머리 정의 -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#059669"></polygon>
+    </marker>
+  </defs>
+
+  <!-- 선택된 변수 라벨 -->
+  <text x="480" y="490" text-anchor="start" font-size="13" font-weight="500" fill="#059669">최종 선택 변수</text>
+</svg>

@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: 100%;">
+  <!-- 배경 -->
+  <rect width="800" height="600" fill="#f8f7f4"></rect>
+
+  <!-- 제목 -->
+  <text x="400" y="44" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="24" font-weight="700" fill="#0a0a0a">데이터 편향이 AI 결과에 미치는 영향</text>
+
+  <!-- 요리사 (Chef) -->
+  <g transform="translate(120, 320)">
+    <!-- 몸체 -->
+    <path d="M20,120 Q40,60 60,120 Z" fill="#e5e5e5" stroke="#0a0a0a" stroke-width="2"></path>
+    <!-- 얼굴 -->
+    <circle cx="40" cy="50" r="25" fill="#f5f5f4" stroke="#0a0a0a" stroke-width="2"></circle>
+    <!-- 요리사 모자 -->
+    <path d="M20,30 Q20,0 40,0 Q60,0 60,30 Z" fill="#ffffff" stroke="#0a0a0a" stroke-width="2"></path>
+    <rect x="20" y="25" width="40" height="10" fill="#ffffff" stroke="#0a0a0a" stroke-width="2"></rect>
+    <!-- 팔 -->
+    <path d="M60,80 L100,100" stroke="#0a0a0a" stroke-width="2" fill="none"></path>
+    <text x="40" y="150" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="14" fill="#737373">AI 개발자(요리사)</text>
+  </g>
+
+  <!-- 레시피 북 (데이터셋) -->
+  <g transform="translate(260, 380)">
+    <rect x="0" y="0" width="120" height="150" rx="4" fill="#ffffff" stroke="#0a0a0a" stroke-width="2"></rect>
+    <line x1="15" y1="30" x2="105" y2="30" stroke="#e5e5e5" stroke-width="2"></line>
+    <line x1="15" y1="50" x2="105" y2="50" stroke="#e5e5e5" stroke-width="2"></line>
+    <text x="60" y="85" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="14" font-weight="700" fill="#e11d48">편향된 데이터</text>
+    <line x1="15" y1="110" x2="105" y2="110" stroke="#e5e5e5" stroke-width="2"></line>
+    <text x="60" y="170" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="14" fill="#737373">학습 데이터 레시피</text>
+  </g>
+
+  <!-- 냄비 (AI 모델) -->
+  <g transform="translate(520, 350)">
+    <!-- 가스레인지 -->
+    <rect x="0" y="140" width="180" height="20" rx="4" fill="#737373"></rect>
+    <!-- 냄비 본체 -->
+    <path d="M20,20 L160,20 L150,130 Q150,140 140,140 L40,140 Q30,140 30,130 Z" fill="#f5f5f4" stroke="#0a0a0a" stroke-width="3"></path>
+    <path d="M10,30 L30,30 M150,30 L170,30" stroke="#0a0a0a" stroke-width="3"></path>
+    
+    <!-- 결과 표정 (애니메이션) -->
+    <g id="outcome-face" opacity="0">
+      <!-- 슬픈 눈 -->
+      <path d="M65,60 Q75,50 85,60" fill="none" stroke="#0a0a0a" stroke-width="2"></path>
+      <path d="M95,60 Q105,50 115,60" fill="none" stroke="#0a0a0a" stroke-width="2"></path>
+      <!-- 슬픈 입 -->
+      <path d="M70,100 Q90,80 110,100" fill="none" stroke="#e11d48" stroke-width="3"></path>
+      
+      <animate attributeName="opacity" from="0" to="1" begin="bias-drop.end" dur="0.5s" fill="freeze"></animate>
+      <!-- 흔들림 효과 -->
+      <animateTransform attributeName="transform" type="translate" values="0,0; -2,0; 2,0; -2,0; 0,0" begin="bias-drop.end" dur="0.3s" repeatCount="3"></animateTransform>
+    </g>
+
+    <text x="90" y="175" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="16" font-weight="700" fill="#0a0a0a">AI 모델</text>
+    
+    <!-- 결과 라벨 -->
+    <g opacity="0">
+      <rect x="20" y="-60" width="140" height="40" rx="20" fill="#e11d48"></rect>
+      <text x="90" y="-40" text-anchor="middle" dominant-baseline="middle" font-family="'Pretendard', sans-serif" font-size="14" font-weight="700" fill="#ffffff">불공정한 결과</text>
+      <animate attributeName="opacity" from="0" to="1" begin="bias-drop.end + 0.5s" dur="0.5s" fill="freeze"></animate>
+      <animate attributeName="transform" type="translate" from="0,20" to="0,0" begin="bias-drop.end + 0.5s" dur="0.5s" fill="freeze"></animate>
+    </g>
+  </g>
+
+  <!-- 편향된 재료 (Bias Ingredient) -->
+  <g id="bias-ingredient" opacity="0">
+    <circle cx="0" cy="0" r="12" fill="#e11d48"></circle>
+    <text y="2" text-anchor="middle" dominant-baseline="middle" font-family="'Pretendard', sans-serif" font-size="10" font-weight="700" fill="#ffffff">편향</text>
+    
+    <!-- 등장 -->
+    <animate attributeName="opacity" from="0" to="1" begin="1s" dur="0.3s" fill="freeze"></animate>
+    
+    <!-- 이동 경로 (레시피 -> 냄비) -->
+    <animateMotion id="bias-drop" path="M 320,460 C 350,350 450,300 580,360" begin="1.3s" dur="2s" fill="freeze" calcMode="spline" keySplines="0.42 0 0.58 1"></animateMotion>
+    
+    <!-- 냄비 속으로 사라짐 -->
+    <animate attributeName="opacity" from="1" to="0" begin="bias-drop.end - 0.1s" dur="0.1s" fill="freeze"></animate>
+  </g>
+
+  <!-- 증기 효과 -->
+  <g opacity="0.4" stroke="#737373" stroke-width="2" fill="none">
+    <path d="M570,330 Q580,310 570,290">
+      <animate attributeName="stroke-dasharray" values="0,50; 50,0" dur="2s" repeatCount="indefinite"></animate>
+    </path>
+    <path d="M610,330 Q620,310 610,290">
+      <animate attributeName="stroke-dasharray" values="0,50; 50,0" dur="2s" begin="0.5s" repeatCount="indefinite"></animate>
+    </path>
+    <path d="M650,330 Q660,310 650,290">
+      <animate attributeName="stroke-dasharray" values="0,50; 50,0" dur="2s" begin="1s" repeatCount="indefinite"></animate>
+    </path>
+  </g>
+</svg>

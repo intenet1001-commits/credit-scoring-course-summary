@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: 100%;">
+  <!-- 배경 -->
+  <rect width="800" height="600" fill="#f8f7f4"></rect>
+
+  <!-- 제목 -->
+  <text x="400" y="60" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="24" font-weight="700" fill="#0a0a0a">기업 규모별 신용평가 모델 비중 변화</text>
+
+  <!-- 기업 유형 라벨 (상태 표시) -->
+  <g transform="translate(400, 110)">
+    <rect x="-60" y="-20" width="120" height="40" rx="20" fill="#ffffff" stroke="#e5e5e5" stroke-width="1"></rect>
+    <text id="company_type" font-family="'Pretendard', sans-serif" font-size="18" font-weight="700" fill="#059669" text-anchor="middle" dominant-baseline="middle">
+      대기업
+      <animate attributeName="opacity" values="1;0;0;1" dur="8s" repeatCount="indefinite" keyTimes="0;0.45;0.55;1"></animate>
+    </text>
+    <text id="company_type_small" font-family="'Pretendard', sans-serif" font-size="18" font-weight="700" fill="#059669" text-anchor="middle" dominant-baseline="middle" opacity="0">
+      중소기업
+      <animate attributeName="opacity" values="0;1;1;0" dur="8s" repeatCount="indefinite" keyTimes="0;0.45;0.55;1"></animate>
+    </text>
+  </g>
+
+  <!-- 저울 베이스 -->
+  <path d="M360 520 L440 520 L410 350 L390 350 Z" fill="#e5e5e5" stroke="#737373" stroke-width="2"></path>
+  <circle cx="400" cy="350" r="8" fill="#737373"></circle>
+
+  <!-- 저울 가로대 및 팬 그룹 -->
+  <g transform="translate(400, 350)">
+    <g>
+      <!-- 가로대 회전 애니메이션 -->
+      <animateTransform attributeName="transform" type="rotate" values="-20; -20; 0; 0; -20" dur="8s" repeatCount="indefinite" keyTimes="0; 0.4; 0.5; 0.9; 1"></animateTransform>
+      
+      <line x1="-220" y1="0" x2="220" y2="0" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"></line>
+      
+      <!-- 왼쪽 팬 (재무 모델) -->
+      <g transform="translate(-220, 0)">
+        <!-- 팬 수평 유지 애니메이션 -->
+        <animateTransform attributeName="transform" type="rotate" values="20; 20; 0; 0; 20" dur="8s" repeatCount="indefinite" keyTimes="0; 0.4; 0.5; 0.9; 1" additive="sum"></animateTransform>
+        <line x1="0" y1="0" x2="0" y2="120" stroke="#737373" stroke-width="2"></line>
+        <path d="M-80 120 L80 120 L60 150 L-60 150 Z" fill="#f5f5f4" stroke="#0a0a0a" stroke-width="2"></path>
+        
+        <!-- 재무 모델 무게추 -->
+        <g transform="translate(0, 118)">
+          <rect x="-50" y="-80" width="100" height="80" rx="4" fill="#059669">
+            <animate attributeName="height" values="80;80;40;40;80" dur="8s" repeatCount="indefinite" keyTimes="0; 0.4; 0.5; 0.9; 1"></animate>
+            <animate attributeName="y" values="-80;-80;-40;-40;-80" dur="8s" repeatCount="indefinite" keyTimes="0; 0.4; 0.5; 0.9; 1"></animate>
+          </rect>
+          <text y="-40" fill="#ffffff" font-family="'Pretendard', sans-serif" font-size="16" font-weight="500" text-anchor="middle">
+            재무 모델
+            <animate attributeName="y" values="-40;-40;-20;-20;-40" dur="8s" repeatCount="indefinite" keyTimes="0; 0.4; 0.5; 0.9; 1"></animate>
+          </text>
+        </g>
+      </g>
+
+      <!-- 오른쪽 팬 (대표자 모델) -->
+      <g transform="translate(220, 0)">
+        <!-- 팬 수평 유지 애니메이션 -->
+        <animateTransform attributeName="transform" type="rotate" values="20; 20; 0; 0; 20" dur="8s" repeatCount="indefinite" keyTimes="0; 0.4; 0.5; 0.9; 1" additive="sum"></animateTransform>
+        <line x1="0" y1="0" x2="0" y2="120" stroke="#737373" stroke-width="2"></line>
+        <path d="M-80 120 L80 120 L60 150 L-60 150 Z" fill="#f5f5f4" stroke="#0a0a0a" stroke-width="2"></path>
+        
+        <!-- 대표자 모델 무게추 (중소기업일 때만 등장) -->
+        <g transform="translate(0, 118)" opacity="0">
+          <animate attributeName="opacity" values="0;0;1;1;0" dur="8s" repeatCount="indefinite" keyTimes="0; 0.4; 0.5; 0.9; 1"></animate>
+          <rect x="-50" y="-60" width="100" height="60" rx="4" fill="#2563eb"></rect>
+          <text y="-30" fill="#ffffff" font-family="'Pretendard', sans-serif" font-size="16" font-weight="500" text-anchor="middle">대표자 모델</text>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- 설명 텍스트 -->
+  <g transform="translate(400, 560)">
+    <text font-family="'Pretendard', sans-serif" font-size="14" fill="#737373" text-anchor="middle">
+      대기업은 재무 지표 중심, 중소기업은 대표자 역량 및 신용을 복합적으로 반영
+    </text>
+  </g>
+</svg>
